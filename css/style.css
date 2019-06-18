@@ -33,15 +33,17 @@ img {
   max-width: 100%;
 }
 
-.content-img {
-  /* flex: 1; */
-}
-
 .main-content {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
   height: 80vh;
+}
+
+@media (min-width: 1440px) {
+  .main-content {
+    display: flex;
+  }
 }
 
 .content {
@@ -49,7 +51,6 @@ img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  /* flex: 1; */
   flex-basis: 40%;
   color: #fff;
 }
