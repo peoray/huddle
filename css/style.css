@@ -1,7 +1,9 @@
 /* css variables */
-
 :root {
   --color-white: #fff;
+  --color-black: #000;
+  --color-violet: hsl(257, 40%, 49%);
+  --text-size: 1.6rem;
 }
 
 *::before,
@@ -14,13 +16,13 @@
 
 html {
   font-size: 62.5%;
-  background: hsl(257, 40%, 49%);
+  background: var(--color-violet);
 }
 
 body {
   box-sizing: border-box;
   line-height: 1.7;
-  font-size: 1.6rem;
+  font-size: var(--text-size);
   background: url(../images/bg-desktop.svg);
 }
 
@@ -48,16 +50,19 @@ img {
   display: flex;
   justify-content: space-between;
   margin-top: 6rem;
+  overflow: hidden;
 }
 
 .content-img {
   margin-right: 7rem;
+  animation: moveInLeft 1s ease-out;
 }
 
 .content {
   margin-top: 5rem;
   width: 40%;
   color: var(--color-white);
+  animation: moveInRight 1s ease-out;
 }
 
 .heading {
@@ -72,20 +77,53 @@ img {
   display: block;
 }
 
-.btn {
-  outline: none;
-  border: none;
-  padding: 1.3rem 5rem;
-  font-size: 1.5rem;
+.btn:link,
+.btn:visited {
+  display: inline-block;
   font-weight: 400;
-  text-align: center;
-  background: var(--color-white);
-  border-radius: 100px;
+  padding: 1rem 5rem;
+  text-decoration: none;
+  border-radius: 10rem;
   margin-top: 2.5rem;
+  position: relative;
+  background: var(--color-white);
+  color: var(--color-violet);
+  transition: all 0.3s;
+}
+
+.btn::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn:hover {
+  transform: translateY(-2.5px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn:active,
+.btn:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .footer {
   text-align: right;
+  animation: fadeIn 1s ease-in 0.8s backwards;
 }
 
 .icon {
@@ -95,10 +133,50 @@ img {
   border-radius: 50%;
   margin: 0 0.4rem 0 0;
   color: var(--color-white);
+  transition: all 0.5s;
+}
+
+.icon:hover {
+  background: var(--color-white);
+  color: var(--color-violet);
 }
 
 .icon:last-child {
   margin: 0;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /* RWD */
