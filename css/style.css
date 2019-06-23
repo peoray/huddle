@@ -1,3 +1,9 @@
+/* css variables */
+
+:root {
+  --color-white: #fff;
+}
+
 *::before,
 *::after,
 * {
@@ -8,51 +14,50 @@
 
 html {
   font-size: 62.5%;
+  background: hsl(257, 40%, 49%);
 }
 
 body {
   box-sizing: border-box;
   line-height: 1.7;
   font-size: 1.6rem;
-  background: hsl(257, 40%, 49%);
+  background: url(../images/bg-desktop.svg);
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
-.header img {
+.header {
   display: flex;
   align-items: center;
   height: 70px;
+}
+
+.header .logo {
   width: 150px;
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .main-content {
-  /* display: flex; */
+  display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 80vh;
+  margin-top: 6rem;
 }
 
-@media (min-width: 1440px) {
-  .main-content {
-    display: flex;
-  }
+.content-img {
+  margin-right: 7rem;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-basis: 40%;
-  color: #fff;
+  margin-top: 5rem;
+  width: 40%;
+  color: var(--color-white);
 }
 
 .heading {
@@ -68,32 +73,95 @@ img {
 }
 
 .btn {
-  align-self: flex-start;
   outline: none;
   border: none;
   padding: 1.3rem 5rem;
   font-size: 1.5rem;
   font-weight: 400;
   text-align: center;
-  background: #fff;
+  background: var(--color-white);
   border-radius: 100px;
   margin-top: 2.5rem;
 }
 
 .footer {
   text-align: right;
-  display: block;
 }
 
 .icon {
-  border: 1px solid #fff;
+  border: 1px solid var(--color-white);
   vertical-align: middle;
   padding: 0.8rem;
   border-radius: 50%;
   margin: 0 0.4rem 0 0;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .icon:last-child {
   margin: 0;
+}
+
+/* RWD */
+
+@media (max-width: 1280px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-img {
+    margin-right: 0;
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    align-self: center;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .heading {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 470px) {
+  body {
+    background: url(../images/bg-mobile.svg);
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .content p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .heading {
+    font-size: 2rem;
+  }
 }
