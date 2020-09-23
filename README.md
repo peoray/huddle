@@ -5,6 +5,6 @@
 
 **Frontend mentor challenge for a landing page with single introductory section**
 
-[See Live Website](https://peoray.github.io/huddle-v-1/)
+[See Live Website](https://peoray.github.io/huddle/)
 
-[See challenge link](https://beta.frontendmentor.io/challenges/huddle-landing-page-with-single-introductory-section-5ca5f0ef1e82137ec91a50fa)
+[See challenge link](https://www.frontendmentor.io/challenges/huddle-landing-page-with-a-single-introductory-section-B_2Wvxgi0)
